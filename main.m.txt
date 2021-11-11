@@ -1,0 +1,7 @@
+clc
+clear all
+close all
+
+addpath('ILOG_CPLEX_PATH','C:\Program Files\IBM\ILOG\CPLEX_Enterprise_Server1210\CPLEX_Studio\cplex\matlab\x64_win64')
+
+initCobra
