@@ -13,7 +13,7 @@ addpath("/home/ivan/dev/Project/cobratoolbox","files/iJN1462/","figures/","tutor
       changeCobraSolver(solverName, solverType);
 %% read original Model
 
-iJN1462_initial    = readCbModel('files/iJN1462/iNogalesEtAl.xml');
+iJN1462    = readCbModel('files/iJN1462/iNogalesEtAl.xml');
 
 %ExchReaSummTab(model,false)
 
@@ -25,7 +25,7 @@ iJN1462_initial    = readCbModel('files/iJN1462/iNogalesEtAl.xml');
 
 medium = 1;
 
-iJN1462     = setMediumBoundaries(iJN1462_initial,medium);
+iJN1462     = setMediumBoundaries(iJN1462,medium);
 
 % negative value means uptake, positive means secretion
 [iJN1462_GLC_UR6_3,iJN1462_GLC_UR7_3,iJN1462_GLN_UR5_1,iJN1462_GLC_UR10_9,iJN1462_OCT_UR3_4]  =   deal(iJN1462);
