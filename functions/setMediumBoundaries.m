@@ -141,6 +141,14 @@ switch switchInput
         % additional constraints
         model=changeRxnBounds(model,'EX_o2_e',-21.5,'l');
         model=changeRxnBounds(model,'EX_nh4_e',0,'l');
-	
+        
+            case 3
+        % Reset all exchange Rections to be reversible Reactions
+            EXCHANGE_Reactions = nan;
+            run functions/exchangeRateCell.m
+            for i = 1 : length(EXCHANGE_Reactions)           
+                model = changeRxnBounds(model,EXCHANGE_Reactions{i},-1000,'l');
+                model = changeRxnBounds(model,EXCHANGE_Reactions{i},1000,'u');
+            end   
 
 end
