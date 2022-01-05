@@ -1,5 +1,4 @@
-# Flux Balance Analysis using The COnstraint-Based Reconstruction
-# and Analysis COBRA Toolbox
+# Flux Balance Analysis of Pseunomas Putida iJN1462 using COBRA Toolbox
 
 
 ## General description
