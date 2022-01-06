@@ -73,8 +73,6 @@ switch switchInput
         model=changeRxnBounds(model,'EX_zn2_e_',-10,'l');
         model=changeRxnBounds(model,'EX_zn2_e_',1000,'u');
  
- 
-        
             case 2
         
         % amino Acids
