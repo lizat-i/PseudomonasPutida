@@ -1,26 +1,23 @@
 %% Initialize 
 close all
 clear all
-format longG
-
+format
 addpath("/home/ivan/dev/Project/cobratoolbox","files/","files/iJN1462/","figures/","tutorials/","functions/","tutorials/websiteTUT/")
 
 %% Execute this part only ones when starting work
-
 %initCobraToolbox(false); % false, as we don't want to update
 %%
 %change Solver:
-%      changeCobraSolver ('ibm_cplex', 'LP');
-%      changeCobraSolver ('ibm_cplex', 'MILP');
-%      changeCobraSolver ('ibm_cplex', 'QP');
-%      changeCobraSolver ('ibm_cplex', 'MIQP');
-      %changeCobraSolver ('pdco', 'EP') 
+     changeCobraSolver ('ibm_cplex', 'LP');
+     changeCobraSolver ('ibm_cplex', 'MILP');
+     changeCobraSolver ('ibm_cplex', 'QP');
+     changeCobraSolver ('ibm_cplex', 'MIQP');
+      changeCobraSolver ('pdco', 'EP') 
       
-%% read original Model
+%% read original Model the iJN1463 
 
-iJN1462_initial    = readCbModel('files/iJN1462/iNogalesEtAl.xml')  ;
-%iJN1463_initial    = readCbModel('files/iJN1463.xml')              ;
-%iJN1462_initial    = readCbModel('files/iJN1463/iJN1463.xml')  ;
+
+iJN1462_initial    = readCbModel('files/iJN1463/iJN1463.xml')  ;
 %% Set Medium based lower and upper BoundaryConditions
 
 % choose Medium and adjust BC
@@ -45,11 +42,12 @@ iJN1462     = setMediumBoundaries(iJN1462_initial,medium)   ;
 %iJN1463     = setMediumBoundaries(iJN1463_initial,medium)   ;
  
 %% Create Experiment specific BoundaryConditions
-[iJN1462_GLC_UR6_3,iJN1462_GLC_UR7_3,iJN1462_GLN_UR5_1,iJN1462_GLC_UR10_9,iJN1462_OCT_UR3_4,iJN1462_OCT_URexp]  =   deal(iJN1462);
+[iJN1462_GLC_UR6_3,iJN1462_GLC_UR7_3,iJN1462_GLN_UR5_1,iJN1462_GLC_UR10_9,iJN1462_OCT_UR3_4,iJN1462_Glu_URexp]  =   deal(iJN1462);
 
 %C Sources = glucose
 iJN1462_GLC_UR6_3   = changeRxnBounds(iJN1462_GLC_UR6_3,'EX_glc__D_e',-6.3,'l')     ;
 iJN1462_GLC_UR7_3   = changeRxnBounds(iJN1462_GLC_UR7_3,'EX_glc__D_e',-7.3,'l')     ;
+
 % C Sources = glucose ,  
 % glucanate & 2-ketoglucanate secretion secretion rates constrained
 iJN1462_GLC_UR10_9  = changeRxnBounds(iJN1462_GLC_UR10_9,'EX_glc__D_e',-10.9,'l')   ;
@@ -62,22 +60,22 @@ iJN1462_GLN_UR5_1   = changeRxnBounds(iJN1462_GLN_UR5_1,'EX_glc__D_e',1000,'u') 
 iJN1462_GLN_UR5_1   = changeRxnBounds(iJN1462_GLN_UR5_1,'EX_glcn_e',-5.1,'l')       ;
 
 iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_glc__D_e',0,'l')        ;
-iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_glc__D_e',1000,'u')     ;
+iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_glc__D_e',0,'u')     ;
 iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_octa_e',-3.4,'l')       ;
+iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_octa_e',-3.4,'u')       ;
 iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_nh4_e',-3.1,'l')        ; %Nitrogen uptake constraint 
 iJN1462_OCT_UR3_4   = changeRxnBounds(iJN1462_OCT_UR3_4,'EX_o2_e',-13.5,'l')        ; %Oxygen   uptake constraint 
 
 
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_glc__D_e',0,'l')       ;
-iJN1462_OCT_URexp  = changeRxnBounds(iJN1462_OCT_URexp,'EX_glc__D_e',0,'u')         ;
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_octa_e',-3.4,'l')       ;
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_octa_e', -3.4,'u')       ;
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_nh4_e',-3.1,'l')        ; %Nitrogen uptake constraint 
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_nh4_e',-3.1,'u')        ;
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_o2_e',-13.5,'l')        ; %Oxygen   uptake constraint
-iJN1462_OCT_URexp   = changeRxnBounds(iJN1462_OCT_URexp,'EX_o2_e',-13.5,'u')        ;
+iJN1462_Glu_URexp   = changeRxnBounds(iJN1462_Glu_URexp,'EX_glc__D_e',0,'l')       ;
+iJN1462_Glu_URexp  = changeRxnBounds(iJN1462_Glu_URexp,'EX_glc__D_e',0,'u')         ;
+iJN1462_Glu_URexp   = changeRxnBounds(iJN1462_Glu_URexp,'EX_octa_e',-3.4,'l')       ;
+iJN1462_Glu_URexp   = changeRxnBounds(iJN1462_Glu_URexp,'EX_octa_e', -3.4,'u')       ;
+iJN1462_Glu_URexp   = changeRxnBounds(iJN1462_Glu_URexp,'EX_nh4_e',-3.1,'l')        ; %Nitrogen uptake constraint 
+iJN1462_Glu_URexp   = changeRxnBounds(iJN1462_Glu_URexp,'EX_o2_e',-13.5,'l')        ; %Oxygen   uptake constraint
+
 % Demand reaction constraint
-iJN1462_OCT_URexp = setDemandBoundaries(iJN1462_OCT_URexp,2)                        ; %setDemandOutput
+iJN1462_Glu_URexp = setDemandBoundaries(iJN1462_Glu_URexp,4)                        ; %setDemandOutput
 %% Solve Problem
 
 S_UR5_1 = optimizeCbModel(iJN1462_GLN_UR5_1)      ;
@@ -85,7 +83,7 @@ S_UR6_3 = optimizeCbModel(iJN1462_GLC_UR6_3)      ;
 S_UR7_3 = optimizeCbModel(iJN1462_GLC_UR7_3)      ; 
 S_UR10_9= optimizeCbModel(iJN1462_GLC_UR10_9)     ;
 S_UR3_4 = optimizeCbModel(iJN1462_OCT_UR3_4)      ;
-S_URexp= optimizeCbModel(iJN1462_OCT_URexp)       ;
+S_URexp= optimizeCbModel(iJN1462_Glu_URexp)       ;
  
 %% make costum printable table with Solutions 
 
@@ -95,7 +93,7 @@ S_URexp= optimizeCbModel(iJN1462_OCT_URexp)       ;
 [T_row4] = createRelevantOutput(iJN1462_GLC_UR10_9,S_UR10_9,"Glucose")	;
 [T_row5] = createRelevantOutput(iJN1462_OCT_UR3_4,S_UR3_4,"Octanoate")	;
  
-[T_rowexp] = createRelevantOutput(iJN1462_OCT_URexp,S_URexp,"Octanoate");
+[T_rowexp] = createRelevantOutput(iJN1462_Glu_URexp,S_URexp,"Octanoate");
  
 T = [T_row1;T_row2;T_row3;T_row4;T_row5 ;T_rowexp];
 
@@ -104,16 +102,16 @@ disp(T)
  
 
 %[minFlux,maxFluc]=fluxVariability(model, optPercentage, osenseStr, rxnNameList, printLevel, allowLoops, method, cpxControl, advind)
-[minFlux,maxFlux,Vmin,Vmax]=fluxVariability(iJN1462_OCT_URexp, 100, 'max', {'PHAP2C60';'PHAP2C80'}, 1, false, [], [], []);
+%[minFlux,maxFlux,Vmin,Vmax]=fluxVariability(iJN1462_OCT_URexp, 100, 'max', {'PHAP2C60';'PHAP2C80'}, 1, false, [], [], []);
 
  
 
 %% check PHA Metabolism reactions wih solutions
-surfNetPHAR(iJN1462_OCT_UR3_4,S_UR3_4)
+%surfNetPHAR(iJN1462_OCT_UR3_4,S_UR3_4)
 
 %% geometric FBA a uniqe optimalFBA
 
-%fluxinger = geometricFBA(iJN1462_initial)
+%fluxVecotr = geometricFBA(iJN1462_initial)
  
 %%
 

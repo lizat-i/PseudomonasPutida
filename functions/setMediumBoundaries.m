@@ -70,8 +70,8 @@ switch switchInput
         model=changeRxnBounds(model,'EX_tungs_e',-10,'l');
         model=changeRxnBounds(model,'EX_tungs_e',1000,'u');
         % Zn2 exchange
-        model=changeRxnBounds(model,'EX_zn2_e_',-10,'l');
-        model=changeRxnBounds(model,'EX_zn2_e_',1000,'u');
+        model=changeRxnBounds(model,'EX_zn2_e',-10,'l');
+        model=changeRxnBounds(model,'EX_zn2_e',1000,'u');
  
             case 2
         
@@ -113,7 +113,7 @@ switch switchInput
         model=changeRxnBounds(model,'EX_ca2_e',-100,'l');
         model=changeRxnBounds(model,'EX_mg2_e',-100,'l');
         model=changeRxnBounds(model,'EX_sel_e',-100,'l');
-        model=changeRxnBounds(model,'EX_zn2_e_',-100,'l');
+        model=changeRxnBounds(model,'EX_zn2_e',-100,'l');
         model=changeRxnBounds(model,'EX_aso4_e',-100,'l');
         model=changeRxnBounds(model,'EX_cd2_e',-100,'l');
         model=changeRxnBounds(model,'EX_hg2_e',-100,'l');
