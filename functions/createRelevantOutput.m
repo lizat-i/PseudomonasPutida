@@ -29,9 +29,9 @@ end
 [pos_PHAC1,~] = getIDPositions(model,'PHADPC60','rxns')     ;
 [pos_PHAC2,~] = getIDPositions(model,'PHADPC80','rxns')     ;
 [pos_PHAC3,~] = getIDPositions(model,'DM_C60aPHA','rxns')    ;
-[pos_PHAC4,~] = getIDPositions(model,'DM_C80aPHA','rxns')    ;
+[pos_PHAC4,~] = getIDPositions(model,'DM_C80aPHA','rxns')    ;%%here comes 
 [pos_PHAC5,~] = getIDPositions(model,'PHAP2C60','rxns')    ;
-[pos_PHAC6,~] = getIDPositions(model,'PHAP2C80','rxns')    ;
+[pos_PHAC6,~] = getIDPositions(model,'PHAP2C80','rxns')    ; %% here
 %cyclic PHA's
 [pos_PHAC7,~] = getIDPositions(model,'PHAPCP80','rxns')     ;
 [pos_PHAC8,~] = getIDPositions(model,'PHAPCP60','rxns')     ;
@@ -40,7 +40,8 @@ end
 
 PHA_prod_rate1 = abs(solution.v(pos_PHAC1))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_PHAC3))+abs(solution.v(pos_PHAC4))+abs(solution.v(pos_PHAC5)) + ...
                  abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8))+abs(solution.v(pos_PHAC9)) ;
- 
+             
+PHA_prod_rate1 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6));
 %% hydroxy-carbonsaeure coA intermediat
 
 [pos_R_H81,~] = getIDPositions(model,'ACSPHAC80','rxns')     ;
