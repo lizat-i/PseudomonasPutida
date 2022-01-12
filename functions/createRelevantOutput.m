@@ -33,15 +33,16 @@ end
 [pos_PHAC5,~] = getIDPositions(model,'PHAP2C60','rxns')    ;
 [pos_PHAC6,~] = getIDPositions(model,'PHAP2C80','rxns')    ; %% here
 %cyclic PHA's
-[pos_PHAC7,~] = getIDPositions(model,'PHAPCP80','rxns')     ;
-[pos_PHAC8,~] = getIDPositions(model,'PHAPCP60','rxns')     ;
+[pos_PHAC7,~] = getIDPositions(model,'PHAP2C100','rxns')     ;
+[pos_PHAC8,~] = getIDPositions(model,'PHAP2C120','rxns')     ;
  %acetyl thio PHA's
 [pos_PHAC9,~] = getIDPositions(model,'PHAPCT60','rxns')    ;
 
-overall_PHA_rates = abs(solution.v(pos_PHAC1))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_PHAC3))+abs(solution.v(pos_PHAC4))+abs(solution.v(pos_PHAC5)) + ...
+%overall_PHA_rates = abs(solution.v(pos_PHAC1))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_PHAC3))+abs(solution.v(pos_PHAC4))+abs(solution.v(pos_PHAC5)) + ...
                  abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8))+abs(solution.v(pos_PHAC9)) ;
              
-PHA_aliphatic_8_6 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6));
+PHA_aliphatic_8_6 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8));
+%sinkPHA         = abs(solution.v(pos_PHAC5));
 %% hydroxy-carbonsaeure coA intermediat
 
 [pos_R_H81,~] = getIDPositions(model,'ACSPHAC80','rxns')     ;
@@ -82,6 +83,6 @@ NH4                     =   NH4_1                ;
 PO4                     =   PO4_1               ;
 OUR                     =    OUR_V              ;
 R_hocta                 =   R_hocta_rate_1        ;
-T = table(CarbonSource,Glucose_R,Octanoate_R,Gluconate_R,Keto_Gluconate_R,GrowthRate,PHA,NH4,PO4,OUR,'RowNames',SimulationRun);
+T = table(CarbonSource,Glucose_R,Octanoate_R,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,'RowNames',SimulationRun);
 end
 

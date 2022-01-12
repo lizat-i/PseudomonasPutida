@@ -1,5 +1,24 @@
 %% Get PHA subsystem Reactionnames
+
+ %% check exchange reaction wih solutions
  
+
+%[minFlux,maxFluc]=fluxVariability(model, optPercentage, osenseStr, rxnNameList, printLevel, allowLoops, method, cpxControl, advind)
+%[minFlux,maxFlux,Vmin,Vmax]=fluxVariability(iJN1462_OCT_URexp, 100, 'max', {'PHAP2C60';'PHAP2C80'}, 1, false, [], [], []);
+
+ 
+
+%% check PHA Metabolism reactions wih solutions
+%surfNetPHAR(iJN1462_OCT_UR3_4,S_UR3_4)
+
+%% geometric FBA a uniqe optimalFBA
+
+%fluxVecotr = geometricFBA(iJN1462_initial)
+ 
+%%
+
+
+%fluxEnrichmentResult = FEA(model, rxnSet, group)
 
 %% Try FVA
 [selExc, selUpt]    =   findExcRxns(iJN1462_initial)        ;
