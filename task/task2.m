@@ -1,35 +1,9 @@
-%% Initialize 
-close all
-clear all
-format
-addpath("/home/ivan/dev/Project/cobratoolbox","files/","files/iJN1462/","figures/","tutorials/","functions/","tutorials/websiteTUT/")
+%% Task2
+%   Recreate the Paper of Nogales et al
 
-%% Execute this part only ones when starting work
-initCobraToolbox(false); % false, as we don't want to update
-%change Solver:
-     changeCobraSolver ('ibm_cplex', 'LP');
-     changeCobraSolver ('ibm_cplex', 'MILP');
-     changeCobraSolver ('ibm_cplex', 'QP');
-     changeCobraSolver ('ibm_cplex', 'MIQP');
- 
-      
-%% read original Model the iJN1463 
-iJN1462_initial    = readCbModel('files/iJN1463/iJN1463.xml')  ;
 
-%% Set Medium based lower and upper BoundaryConditions
-
-% choose Medium and adjust BC
-   % medium 1 = glucose min Medium M9
-   % medium 2 = In silico Luria Broth (LB) medium
-   % medium 3 = reseting all reactions to +/- 1000
-   
-    medium = 1;
- 
-    iJN1462     =   iJN1462_initial                                 ;
-    iJN1462     =   setMediumBoundaries(iJN1462_initial,medium)   ; 
- 
 %% Create Experiment specific BoundaryConditions
-[Oct_BC,Gluc_const,Gluc_BC,Oct_const,iJN1462_OCT_UR3_4,iJN1462_Glu_URexp]  =   deal(iJN1462);
+[Oct_BC,Gluc_const,Gluc_BC,Oct_const,iJN1462_OCT_UR3_4,iJN1462_Glu_URexp]  =   deal(iJN1463);
 % BaseCase Octanoat Glucose
 Gluc_BC     = changeRxnBounds(Gluc_BC,'EX_glc__D_e',-7.3,'l')   ;
 Gluc_BC     = changeRxnBounds(Gluc_BC,'EX_glc__D_e',-7.3,'u')   ;

@@ -1,29 +1,15 @@
-function [T] = createRelevantOutput(model,solution,carbonSource)
-s = inputname(1); 
-%%
-switch lower(carbonSource)
-    case "glucose"
-        [ URIndex,~] = getIDPositions(model,'EX_glc__D_e','rxns') ;
-        UR     = model.lb(URIndex);                                 
-        
-    case "gluconate"
-        [ URIndex,~] = getIDPositions(model,'EX_glcn_e','rxns') ;
-        UR     = model.lb(URIndex);                       
-    case "octanoate"
-        [ URIndex,~] = getIDPositions(model,'EX_octa_e','rxns') ;
-        UR     = model.lb(URIndex) ;                      
-        
-end
-%%
-[pos_phosphate,~]  =   getIDPositions(model,'EX_pi_e','rxns')         ;
-[pos_ammonium,~]  =   getIDPositions(model,'EX_nh4_e','rxns')         ;
-[pos_Glucose,~]  =   getIDPositions(model,'EX_glc__D_e','rxns')         ;
-[pos_octanoate,~]=   getIDPositions(model,'EX_octa_e','rxns')           ;
-[pos_GLUNC_,~]  =   getIDPositions(model,'EX_glcn_e','rxns')            ;
-[pos_K2GLCN,~]  =   getIDPositions(model,'EX_2dhglcn_e','rxns')         ;
-[pos_o2,~]      =   getIDPositions(model,'EX_o2_e','rxns')              ;
-[pos_co2,~]      =   getIDPositions(model,'EX_co2_e','rxns')             ;
-[pos_skPHA,~]      =   getIDPositions(model,'SK_PHAg_c','rxns')             ;
+function [T] = createRelevantOutput_loop(model,solution,name)
+s = name; 
+
+[pos_phosphate,~]   =   getIDPositions(model,'EX_pi_e','rxns')      ;
+[pos_ammonium,~]    =   getIDPositions(model,'EX_nh4_e','rxns')     ;
+[pos_Glucose,~]     =   getIDPositions(model,'EX_glc__D_e','rxns')	;
+[pos_octanoate,~]   =   getIDPositions(model,'EX_octa_e','rxns')	;
+[pos_GLUNC_,~]      =   getIDPositions(model,'EX_glcn_e','rxns')	;
+[pos_K2GLCN,~]      =   getIDPositions(model,'EX_2dhglcn_e','rxns')	;
+[pos_o2,~]          =   getIDPositions(model,'EX_o2_e','rxns')      ;
+[pos_co2,~]         =   getIDPositions(model,'EX_co2_e','rxns')     ;
+[pos_skPHA,~]       =   getIDPositions(model,'SK_PHAg_c','rxns')	;
 
 %producing REactions 
 %aliphatic PHA's
@@ -70,7 +56,6 @@ OUR_V       =   solution.v(pos_o2)      ;
 
 
 SimulationRun =                        {s}      ;
-CarbonSource            =  carbonSource         ;
 
 Glucose_R               =  GLUC                ;
 Octanoate_R             =  OCTA                ;
