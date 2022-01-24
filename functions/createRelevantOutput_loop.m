@@ -1,6 +1,6 @@
-function [T] = createRelevantOutput_loop(model,solution,name)
-s = name; 
-
+function [T] = createRelevantOutput_loop(model,solution)
+s = inputname(1); 
+%%
 [pos_phosphate,~]   =   getIDPositions(model,'EX_pi_e','rxns')      ;
 [pos_ammonium,~]    =   getIDPositions(model,'EX_nh4_e','rxns')     ;
 [pos_Glucose,~]     =   getIDPositions(model,'EX_glc__D_e','rxns')	;
@@ -11,7 +11,7 @@ s = name;
 [pos_co2,~]         =   getIDPositions(model,'EX_co2_e','rxns')     ;
 [pos_skPHA,~]       =   getIDPositions(model,'SK_PHAg_c','rxns')	;
 
-%producing REactions 
+%%producing REactions 
 %aliphatic PHA's
 [pos_PHAC1,~] = getIDPositions(model,'PHADPC60','rxns')     ;
 [pos_PHAC2,~] = getIDPositions(model,'PHADPC80','rxns')     ;

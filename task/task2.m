@@ -1,5 +1,6 @@
 %% Task2
-%   Recreate the Paper of Nogales et al
+%   Experiment find out how to set the demand reactions properly
+%   
 
 
 %% Create Experiment specific BoundaryConditions
