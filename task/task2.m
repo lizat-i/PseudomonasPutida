@@ -13,7 +13,7 @@ Oct_BC      = changeRxnBounds(Oct_BC,'EX_glc__D_e',0,'l')       ;
 Oct_BC      = changeRxnBounds(Oct_BC,'EX_glc__D_e',0,'u')       ;
 Oct_BC      = changeRxnBounds(Oct_BC,'EX_octa_e',-3.4,'l')      ;
 Oct_BC      = changeRxnBounds(Oct_BC,'EX_octa_e',-3.4,'u')      ;
-Oct_BC      = setDemandBoundaries(Oct_BC,3)                 	; 
+Oct_BC      = setDemandBoundaries(Oct_BC,1)                 	; 
 
 %% constr
 Gluc_const   = changeRxnBounds(Gluc_const,'EX_glc__D_e',-7.3,'l')       ;
@@ -77,7 +77,7 @@ disp(T)
 %% Difference between two Solutions
 
  
-surfNet(Gluc_const,'RECOAH13',true, S_Gluc_const.x, false,true,[],[],[])
+%surfNet(Gluc_const,'RECOAH13',true, S_Gluc_const.x, false,true,[],[],[])
 
 
 %surfNetExchRComp(Gluc_BC, S_Gluc_BC, S_Gluc_const) 

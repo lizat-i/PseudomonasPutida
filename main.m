@@ -55,4 +55,4 @@ initCobraToolbox(false); % false, as we don't want to update
 
 %% project in development
 
-run(which('task3.m'))
+%run(which('task3.m'))

@@ -1,5 +1,5 @@
-function [T] = createRelevantOutput_loop(model,solution)
-s = inputname(1); 
+function [T] = createRelevantOutput_loop(model,solution,name)
+s = name; 
 %%
 [pos_phosphate,~]   =   getIDPositions(model,'EX_pi_e','rxns')      ;
 [pos_ammonium,~]    =   getIDPositions(model,'EX_nh4_e','rxns')     ;
@@ -11,45 +11,60 @@ s = inputname(1);
 [pos_co2,~]         =   getIDPositions(model,'EX_co2_e','rxns')     ;
 [pos_skPHA,~]       =   getIDPositions(model,'SK_PHAg_c','rxns')	;
 
-%%producing REactions 
-%aliphatic PHA's
-[pos_PHAC1,~] = getIDPositions(model,'PHADPC60','rxns')     ;
-[pos_PHAC2,~] = getIDPositions(model,'PHADPC80','rxns')     ;
-[pos_PHAC3,~] = getIDPositions(model,'DM_C60aPHA_c','rxns')    ;
-[pos_PHAC4,~] = getIDPositions(model,'DM_C80aPHA_c','rxns')    ;%%here comes 
-[pos_PHAC5,~] = getIDPositions(model,'PHAP2C60','rxns')    ;
-[pos_PHAC6,~] = getIDPositions(model,'PHAP2C80','rxns')    ; %% here
-%cyclic PHA's
-[pos_PHAC7,~] = getIDPositions(model,'PHAP2C100','rxns')     ;
-[pos_PHAC8,~] = getIDPositions(model,'PHAP2C120','rxns')     ;
- %acetyl thio PHA's
-[pos_PHAC9,~] = getIDPositions(model,'PHAPCT60','rxns')    ;
+%%  producing REactions 
+%    
 
-%overall_PHA_rates = abs(solution.v(pos_PHAC1))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_PHAC3))+abs(solution.v(pos_PHAC4))+abs(solution.v(pos_PHAC5)) + ...
-                 abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8))+abs(solution.v(pos_PHAC9)) ;
-             
-PHA_aliphatic_8_6 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8));
-%sinkPHA         = abs(solution.v(pos_PHAC5));
-%% hydroxy-carbonsaeure coA intermediat
+[pos_a6,~] =    getIDPositions(model,'PHAP2C60','rxns')      ;
+[pos_a8,~] =    getIDPositions(model,'PHAP2C80','rxns')      ;
+[pos_a10,~] =   getIDPositions(model,'PHAP2C100','rxns')     ;
+[pos_a12,~] =   getIDPositions(model,'PHAP2C120','rxns')     ;
 
-[pos_R_H81,~] = getIDPositions(model,'ACSPHAC80','rxns')     ;
-[pos_R_H82,~] = getIDPositions(model,'PHADPC80','rxns')     ;
-[pos_R_H83,~] = getIDPositions(model,'RHA80tpp','rxns')    ;
-[pos_R_H84,~]= getIDPositions(model,'RHACOAE80','rxns')     ;
+[pos_c6,~] =    getIDPositions(model,'PHAPCP60','rxns')      ;
+[pos_c8,~] =    getIDPositions(model,'PHAPCP80','rxns')      ;
+[pos_c10,~] =   getIDPositions(model,'PHAPCP100','rxns')     ;
+%%  consuming REactions 
+%       aliphatic PHA's
+[pos_2a6,~] =    getIDPositions(model,'PHADPC60','rxns')      ;
+[pos_2a8,~] =    getIDPositions(model,'PHADPC80','rxns')      ;
+[pos_2a10,~] =   getIDPositions(model,'PHADPC100','rxns')     ;
+[pos_2a12,~] =   getIDPositions(model,'PHADPC120','rxns')     ; 
 
-R_hocta_rate_1 = abs(solution.v(pos_R_H81))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_R_H82))+abs(solution.v(pos_R_H83))+abs(solution.v(pos_R_H84));
+[pos_2c6,~] =    getIDPositions(model,'PHADPCP60','rxns')      ;
+[pos_2c8,~] =    getIDPositions(model,'PHADPCP80','rxns')      ;
+[pos_2c10,~] =   getIDPositions(model,'PHADPCP100','rxns')     ;
 
- 
- 
-sinkPHA     =   solution.v(pos_skPHA)	; 
-CO2_1       =   solution.v(pos_co2)	; 
-PO4_1       =   solution.v(pos_phosphate)	; 
-NH4_1       =   solution.v(pos_ammonium)	; 
+%%   
+sinkPHA_     =   solution.v(pos_skPHA)	; 
+
 GLUC        =   solution.v(pos_Glucose)	; 
-OCTA        =   solution.v(pos_octanoate)	; 
-GLUNC       =   solution.v(pos_GLUNC_)	; 
-K2GLCN      =   solution.v(pos_K2GLCN)	;
+NH4_1       =   solution.v(pos_ammonium)	; 
 OUR_V       =   solution.v(pos_o2)      ;
+CO2_1       =   solution.v(pos_co2)	; 
+
+a8_ = solution.v(pos_a6);
+a6_ = solution.v(pos_a8);
+a10_= solution.v(pos_a10);
+a12_= solution.v(pos_a12);
+
+c8_ = solution.v(pos_c6);
+c6_ = solution.v(pos_c8);
+c10_= solution.v(pos_c10);
+
+ad8_ = solution.v(pos_2a6);
+ad6_ = solution.v(pos_2a8);
+ad10_= solution.v(pos_2a10);
+ad12_= solution.v(pos_2a12);
+
+cd8_ = solution.v(pos_2c6);
+cd6_ = solution.v(pos_2c8);
+cd10_= solution.v(pos_2c10);
+
+ 
+a6_8_10_12_pro_  = abs(a6_)+abs(a8_)+abs(a10_)+abs(a12_) ;
+c6_8_10_pro_     = abs(c6_)+abs(c8_)+abs(c10_)           ;
+
+a6_8_10_12_dem_  = abs(ad6_)+abs(ad8_)+abs(ad10_)+abs(ad12_) ;
+c6_8_10_dem_     = abs(cd6_)+abs(cd8_)+abs(cd10_)           ;
 
 %PHA_prod_rate1 = solution.v(pos_PHAC6)+ solution.v(pos_PHAC8);
 
@@ -57,18 +72,21 @@ OUR_V       =   solution.v(pos_o2)      ;
 
 SimulationRun =                        {s}      ;
 
-Glucose_R               =  GLUC                ;
-Octanoate_R             =  OCTA                ;
-Gluconate_R             =  GLUNC                ;
-Keto_Gluconate_R        =  K2GLCN               ;
-CO2_Secr                =     CO2_1             ;
-GrowthRate              = solution.f            ;
-PHA                     =  PHA_aliphatic_8_6       ;
-SK_OHA                  =   sinkPHA             ;
-NH4                     =   NH4_1                ;
-PO4                     =   PO4_1               ;
+Gluc                    =  GLUC                 ;
+NH4                     =   NH4_1               ; 
 OUR                     =    OUR_V              ;
-R_hocta                 =   R_hocta_rate_1        ;
-T = table(CarbonSource,Glucose_R,Octanoate_R,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,'RowNames',SimulationRun);
+CO2                     =     CO2_1             ;
+GrowthRate              = solution.f            ;
+
+a6_8_12_pro             =  a6_8_10_12_pro_      ;
+c6_8_10_pro             =  c6_8_10_pro_         ;  
+
+a6_8_12_dem             =  a6_8_10_12_dem_      ;
+c6_8_10_dem             =  c6_8_10_dem_         ; 
+
+sinkPHA                 = sinkPHA_               ;
+ 
+T = table(Gluc,NH4,OUR, CO2,GrowthRate,a6_8_12_pro,c6_8_10_pro,a6_8_12_dem,c6_8_10_dem,sinkPHA,'RowNames',SimulationRun);
+
 end
 
