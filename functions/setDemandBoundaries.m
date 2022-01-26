@@ -40,7 +40,7 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'u')        ; 
         model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C141aPHA_C'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C121d6PHA_c',0,'l')        ;   
@@ -49,8 +49,8 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C121aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,1000,'u')        ; 
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'l')        ;   
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100aPHA_c'	,-1000,'l')        ;   
@@ -90,7 +90,7 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'u')        ; 
         model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C141aPHA_C'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C121d6PHA_c',0,'l')        ;   
@@ -99,8 +99,8 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C121aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,1000,'u')        ; 
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'l')        ;   
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100aPHA_c'	,-1000,'l')        ;   
@@ -141,7 +141,7 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',1000,'u')        ; 
         model   = changeRxnBounds(model,'DM_C141aPHA_c'	,-1000,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C141aPHA_C'	,1000,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C141aPHA_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C121d6PHA_c',-1000,'l')        ;   
@@ -150,8 +150,8 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C121aPHA_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,1000,'u')        ; 
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,-1000,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,1000,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,-1000,'l')        ;   
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,-1000,'l')        ;   
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,1000,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100aPHA_c'	,-1000,'l')        ;   
@@ -192,7 +192,7 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C141d5PHA_c',0,'u')        ; 
         model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C141aPHA_C'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C141aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C140aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C121d6PHA_c',0,'l')        ;   
@@ -201,8 +201,8 @@ switch switchInput
         model   = changeRxnBounds(model,'DM_C121aPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C120aPHA_c'	,0,'u')        ; 
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'l')        ;   
-        model   = changeRxnBounds(model,'DM_C101PHA_c'	,0,'u')        ;  
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'l')        ;   
+        model   = changeRxnBounds(model,'DM_C101PAH_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,0,'l')        ;   
         model   = changeRxnBounds(model,'DM_C100pPHA_c'	,0,'u')        ;  
         model   = changeRxnBounds(model,'DM_C100aPHA_c'	,0,'l')        ;   

@@ -1,12 +1,6 @@
 %% Task1 
 %   Recreate the Paper of Nogales et al
 
-
-
-%% read  Model
-    
-
-
 %% Create Experiment specific BoundaryConditions
     [iJN1462_GLC_UR6_3,iJN1462_GLC_UR7_3,iJN1462_GLN_UR5_1,iJN1462_GLC_UR10_9,iJN1462_OCT_UR3_4,iJN1462_Glu_URexp]  =   deal(iJN1463);
 
@@ -34,7 +28,7 @@
 
 %Set Demand Options
 
-    iJN1462_OCT_UR3_4   = setDemandBoundaries(iJN1462_OCT_UR3_4,3)                      ;
+    iJN1462_OCT_UR3_4   = setDemandBoundaries(iJN1462_OCT_UR3_4,1)                      ;
  
 %% Solve Problem
 

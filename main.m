@@ -19,6 +19,7 @@ initCobraToolbox(false); % false, as we don't want to update
      changeCobraSolver ('ibm_cplex', 'MILP')        ;
      changeCobraSolver ('ibm_cplex', 'QP')          ;
      changeCobraSolver ('ibm_cplex', 'MIQP')        ;
+%% Load Model
 
 %load Model 
     iJN1463_initial    = readCbModel(which('iJN1463.xml'))           ;
