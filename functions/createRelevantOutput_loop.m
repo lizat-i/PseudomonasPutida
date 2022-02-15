@@ -41,17 +41,17 @@ NH4_1       =   solution.v(pos_ammonium)	;
 OUR_V       =   solution.v(pos_o2)      ;
 CO2_1       =   solution.v(pos_co2)	; 
 
-a8_ = solution.v(pos_a6);
-a6_ = solution.v(pos_a8);
+a6_ = solution.v(pos_a6);
+a8_ = solution.v(pos_a8);
 a10_= solution.v(pos_a10);
 a12_= solution.v(pos_a12);
 
-c8_ = solution.v(pos_c6);
-c6_ = solution.v(pos_c8);
+c8_ = solution.v(pos_c8);
+c6_ = solution.v(pos_c6);
 c10_= solution.v(pos_c10);
 
-ad8_ = solution.v(pos_2a6);
-ad6_ = solution.v(pos_2a8);
+ad6_ = solution.v(pos_2a6);
+ad8_ = solution.v(pos_2a8);
 ad10_= solution.v(pos_2a10);
 ad12_= solution.v(pos_2a12);
 
@@ -84,9 +84,27 @@ c6_8_10_pro             =  c6_8_10_pro_         ;
 a6_8_12_dem             =  a6_8_10_12_dem_      ;
 c6_8_10_dem             =  c6_8_10_dem_         ; 
 
-sinkPHA                 = sinkPHA_               ;
- 
-T = table(Gluc,NH4,OUR, CO2,GrowthRate,a6_8_12_pro,c6_8_10_pro,a6_8_12_dem,c6_8_10_dem,sinkPHA,'RowNames',SimulationRun);
 
+sinkPHA                 = sinkPHA_               ;
+
+
+a8 = a8_    ;
+a6 = a6_    ;
+a10 = a10_  ;
+a12 = a12_  ;
+c8  = c8_ ;
+c6 =  c8_ ; 
+c10= c10_ ;
+
+ad8 = ad8_;
+ad6 = ad6_;
+ad10 =ad6_;
+ad12 = ad12_;
+cd8 = cd8_;
+cd6 =   cd6_ ; 
+cd10 = cd10_;
+
+%T = table(Gluc,NH4,OUR, CO2,GrowthRate,a6_8_12_pro,c6_8_10_pro,a6_8_12_dem,c6_8_10_dem,sinkPHA,'RowNames',SimulationRun);
+T = table(Gluc,NH4,OUR, CO2,GrowthRate, a6,a8 ,a10,a12,c6,c8,c10,ad6,ad8,ad10,ad12,cd6,cd8,cd10,sinkPHA,'RowNames',SimulationRun);
 end
 

@@ -51,6 +51,9 @@ PHA_aliphatic_8_6 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6))+abs(s
 [pos_R_H83,~] = getIDPositions(model,'RHA80tpp','rxns')    ;
 [pos_R_H84,~]= getIDPositions(model,'RHACOAE80','rxns')     ;
 
+[pos_PHA10,~]= getIDPositions(model,'PHAP2C100','rxns')     ;
+
+
 R_hocta_rate_1 = abs(solution.v(pos_R_H81))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_R_H82))+abs(solution.v(pos_R_H83))+abs(solution.v(pos_R_H84));
 
  
@@ -64,6 +67,7 @@ OCTA        =   solution.v(pos_octanoate)	;
 GLUNC       =   solution.v(pos_GLUNC_)	; 
 K2GLCN      =   solution.v(pos_K2GLCN)	;
 OUR_V       =   solution.v(pos_o2)      ;
+pHA10_       =   solution.v(pos_PHA10)      ;
 
 %PHA_prod_rate1 = solution.v(pos_PHAC6)+ solution.v(pos_PHAC8);
 
@@ -84,6 +88,7 @@ NH4                     =   NH4_1                ;
 PO4                     =   PO4_1               ;
 OUR                     =    OUR_V              ;
 R_hocta                 =   R_hocta_rate_1        ;
-T = table(CarbonSource,Glucose_R,Octanoate_R,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,'RowNames',SimulationRun);
+pHA10                   =   pHA10_      ;                  
+T = table(CarbonSource,Glucose_R,Octanoate_R,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,pHA10,CO2_Secr,'RowNames',SimulationRun);
 end
 

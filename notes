@@ -1,0 +1,16 @@
+summary insilico experiments 26.01.22
+
+Knock out Experimente: Octanoate 
+- growth rate stays the same (WT) if single deletions of PP4549, 4550, 4487, 4702 and 2213 were implemented
+- if PP4549 is deleted the reaction is mainly performed by 2213
+- modle cant be solved if 4549, 4550 and 2213 are deleted 
+
+
+- glucose base case + varying l & u bonderies PHA 
+- we make PHA lower than 800 
+- can we balance C (without sink/demand)? 
+
+
+
+
+

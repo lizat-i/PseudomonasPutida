@@ -45,9 +45,20 @@
     [T_row2] = createRelevantOutput(iJN1462_GLC_UR6_3,S_UR6_3,"Glucose")	;
     [T_row3] = createRelevantOutput(iJN1462_GLC_UR7_3,S_UR7_3,"Glucose")	;   
     [T_row4] = createRelevantOutput(iJN1462_GLC_UR10_9,S_UR10_9,"Glucose")	;
-    [T_row5] = createRelevantOutput(iJN1462_OCT_UR3_4,S_UR3_4,"Octanoate")	;
+    [T_row5] = createRelevantOutput(iJN1462_OCT_UR3_4,S_UR3_4,"Octanoate")
  
     T = [T_row1;T_row2;T_row3;T_row4;T_row5 ];
 
     disp(T)
+    
+ %% FVA of the published result
+
+ 
+ [minFlux, maxFlux] = fluxVariability(iJN1462_OCT_UR3_4, [], [], {'PHAP2C60','PHAP2C80','PHAP2C120'})
+
+ [minFlux, maxFlux] = fluxVariability(iJN1462_GLC_UR7_3, [], [], {'PHAP2C60','PHAP2C80','PHAP2C120'})
+  
+iJN1462_GLC_UR7_3   = changeRxnBounds(iJN1462_GLC_UR7_3,'EX_nh4_e',-3.1,'l')        ; %Nitrogen uptake constraint 
+iJN1462_GLC_UR7_3   = changeRxnBounds(iJN1462_GLC_UR7_3,'EX_nh4_e',-3.1,'u')        ; %Nitrogen uptake constraint 
+ [minFlux, maxFlux] = fluxVariability(iJN1462_GLC_UR7_3, [], [], {'PHAP2C60','PHAP2C80','PHAP2C120'})
  
