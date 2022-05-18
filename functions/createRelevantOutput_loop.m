@@ -106,5 +106,6 @@ cd10 = cd10_;
 
 %T = table(Gluc,NH4,OUR, CO2,GrowthRate,a6_8_12_pro,c6_8_10_pro,a6_8_12_dem,c6_8_10_dem,sinkPHA,'RowNames',SimulationRun);
 T = table(Gluc,NH4,OUR, CO2,GrowthRate, a6,a8 ,a10,a12,c6,c8,c10,ad6,ad8,ad10,ad12,cd6,cd8,cd10,sinkPHA,'RowNames',SimulationRun);
+T = table(Gluc,NH4,OUR, CO2,GrowthRate, a6,a8 ,a10,a12,c6,c8,c10,ad6,ad8,ad10,ad12,cd6,cd8,cd10,sinkPHA,'RowNames',SimulationRun);
 end
 

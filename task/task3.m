@@ -11,8 +11,9 @@
 
 BC     = changeRxnBounds(BC,'EX_glc__D_e'   ,-7.3   ,'l')   ;
 BC     = changeRxnBounds(BC,'EX_glc__D_e'   ,-7.3   ,'u')   ;
+BC     = changeRxnBounds(BC,'EX_o2_e'       ,-13.5  ,'u')   ;
 BC     = changeRxnBounds(BC,'EX_o2_e'       ,-13.5  ,'l')   ; 
-BC     = setDemandBoundaries(BC,2)                         ;
+
 
 Oct_BC   = changeRxnBounds(Oct_BC,'EX_glc__D_e',0,'l')        ;
 Oct_BC   = changeRxnBounds(Oct_BC,'EX_glc__D_e',0,'u')     ;
@@ -20,7 +21,9 @@ Oct_BC   = changeRxnBounds(Oct_BC,'EX_octa_e',-3.4,'l')       ;
 Oct_BC   = changeRxnBounds(Oct_BC,'EX_octa_e',-3.4,'u')       ;
 Oct_BC   = changeRxnBounds(Oct_BC,'EX_nh4_e',-3.1,'l')        ; %Nitrogen uptake constraint 
 Oct_BC   = changeRxnBounds(Oct_BC,'EX_o2_e',-13.5,'l')        ; %Oxygen   uptake constraint 
-Oct_BC     = setDemandBoundaries(Oct_BC,2); 
+
+BC     = setDemandBoundaries(BC,1)                         ;
+Oct_BC     = setDemandBoundaries(Oct_BC,5); 
 
 %%Create, solve and display BaseCase
   %setDemandOutput

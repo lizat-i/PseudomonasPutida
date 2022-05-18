@@ -22,8 +22,8 @@ end
 [pos_GLUNC_,~]  =   getIDPositions(model,'EX_glcn_e','rxns')            ;
 [pos_K2GLCN,~]  =   getIDPositions(model,'EX_2dhglcn_e','rxns')         ;
 [pos_o2,~]      =   getIDPositions(model,'EX_o2_e','rxns')              ;
-[pos_co2,~]      =   getIDPositions(model,'EX_co2_e','rxns')             ;
-[pos_skPHA,~]      =   getIDPositions(model,'SK_PHAg_c','rxns')             ;
+[pos_co2,~]      =   getIDPositions(model,'EX_co2_e','rxns')            ;
+[pos_skPHA,~]      =   getIDPositions(model,'SK_PHAg_c','rxns')         ;
 
 %producing REactions 
 %aliphatic PHA's
@@ -42,7 +42,7 @@ end
 %overall_PHA_rates = abs(solution.v(pos_PHAC1))+abs(solution.v(pos_PHAC2))+abs(solution.v(pos_PHAC3))+abs(solution.v(pos_PHAC4))+abs(solution.v(pos_PHAC5)) + ...
                  abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8))+abs(solution.v(pos_PHAC9)) ;
              
-PHA_aliphatic_8_6 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8));
+PHA_aliphatic_6_8_10_12 =  abs(solution.v(pos_PHAC5))+abs(solution.v(pos_PHAC6))+abs(solution.v(pos_PHAC7))+abs(solution.v(pos_PHAC8));
 %sinkPHA         = abs(solution.v(pos_PHAC5));
 %% hydroxy-carbonsaeure coA intermediat
 
@@ -74,21 +74,40 @@ pHA10_       =   solution.v(pos_PHA10)      ;
 
 
 SimulationRun =                        {s}      ;
+%% Information
 CarbonSource            =  carbonSource         ;
-
-Glucose_R               =  GLUC                ;
-Octanoate_R             =  OCTA                ;
-Gluconate_R             =  GLUNC                ;
-Keto_Gluconate_R        =  K2GLCN               ;
-CO2_Secr                =     CO2_1             ;
 GrowthRate              = solution.f            ;
-PHA                     =  PHA_aliphatic_8_6       ;
-SK_OHA                  =   sinkPHA             ;
-NH4                     =   NH4_1                ;
-PO4                     =   PO4_1               ;
-OUR                     =    OUR_V              ;
-R_hocta                 =   R_hocta_rate_1        ;
-pHA10                   =   pHA10_      ;                  
-T = table(CarbonSource,Glucose_R,Octanoate_R,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,pHA10,CO2_Secr,'RowNames',SimulationRun);
+
+%% Carbon Source 
+
+Glucose               =  GLUC                   ;
+Octanoate             =  OCTA                   ;
+Gluconate             =  GLUNC                  ;
+Keto_Gluconate_R      =  K2GLCN                 ;
+
+%% Breathing
+
+OUR                   =    OUR_V              ;
+CO2                   =     CO2_1             ;
+
+%% PHA Secretion Rate
+
+PHA_A_C6_C8_C10_C20   =  PHA_aliphatic_6_8_10_12  ;
+PHA_Sink              =   sinkPHA             ;
+
+
+%% Other Nutrients
+SK_PHA                  =   sinkPHA                 ;
+DM_C8_PHA               =   solution.v(pos_skPHA)   ;
+NH4                     =   NH4_1                   ;
+PO4                     =   PO4_1                   ;
+
+R_hocta                 =   R_hocta_rate_1          ;
+pHA10                   =   pHA10_                  ;
+
+T = table(   CarbonSource,GrowthRate, Glucose ,Octanoate, OUR ,CO2, PHA_A_C6_C8_C10_C20, SK_PHA, DM_C8_PHA, NH4, PO4,'RowNames',SimulationRun);
+
+%T = table(CarbonSource,Glucose,Octanoate,GrowthRate,PHA_A_C5_C8,SK_PHA,NH4,PO4,OUR,CO2,'RowNames',SimulationRun);
+%T = table(CarbonSource,Glucose_ER,Octanoate_ER,GrowthRate,PHA,SK_OHA,NH4,PO4,OUR,pHA10,CO2_Secr,'RowNames',SimulationRun);
 end
 
